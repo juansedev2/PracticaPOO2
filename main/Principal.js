@@ -36,8 +36,8 @@ class Persona{
     }
 
     // toString sobreescrito
-    toString(){
-        return "Nombre: " + this._nombre + " Apellido: " + this._apellido + " Edad: " + this._edad;
+    toString(){  // ! Templeate String es una forma de concatenación con comilla invertida y encapusular en ${}, en VS code posicionar el cursor sobre una variable y este dará la sugerencia de sobreescritura sintáctica
+        return `Nombre: ${this._nombre} Apellido: ${this._apellido} Edad: ${this._edad}`;
     }
 
     
@@ -70,8 +70,8 @@ class Empleado extends Persona{
     }
 
     // toString sobreescrito
-    toString(){
-        return super.toString() + " es un empleado con id " + this._idEmpleado + " y con un sueldo de: " + this._sueldo;
+    toString(){ // ! Templeate String
+        return `${super.toString()} es un empleado con id ${this._idEmpleado} y con un sueldo de: ${this._sueldo}`;
     }
 }
 class Cliente extends Persona{
