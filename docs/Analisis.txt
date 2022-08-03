@@ -1,0 +1,76 @@
+Básado en el diagrama UML del sistema a construir, y en los requerimientos mencionados, se concluye lo siguiente:
+
+    * Objetivo principal: Crear un programa que permita registrar empleados y clientes
+    
+    * Requerimientos específicos del programa:
+        
+        1. Registrar empleados
+        2. Registrar clientes
+        3. Indicar cuantas personas hay
+        4. Indicar cuantos empleados hay
+        5. Indicar cuantos clientes hay
+        6. En cuanto al registro de clientes, registrar la fecha de cuando son registrados automáticamente
+
+    Tips y conceptos de UML:
+
+        # Los miembros estáticos de una clase se escriben subrayados
+        # Flecha sin rellenar y que apunta hacia una clase, hace referencia a una superclase, acompañado de la palabra "extends" en la relación que tienen las clases
+
+En cuanto a las clases, los diagramas están realizados y lo que se entiende y se solicita que deben realizar es lo siguiente:
+
+    Superclase Persona (se puede considerar abstracta): 
+        
+        Atributos
+        o idPersona  ---> numero
+        o nombre   --->  cadena
+        o apellido ---> cadena
+        o edad   ---> numero
+        o contador de personas (estático), un contador para almacenar la cantidad de personas que son registradas en el sistema
+        
+        Métodos
+        o get y set de cada uno a excepción del set del id de persona, porque no se necesita modificarlo
+        o toString con toda la información del objeto
+
+    Subclase Empleado HEREDA de Persona
+
+        Atributos
+        o idEmpleado ---> numero (Cada empleado debe tener un id único y este debe ser obtenido a partir del mismo contador de personas)
+        o contadorEmpleados(estático y extra añadido (leer en Observaciones)), y es opcional al ejercicio, no está planteado en el diagrama pero puede ser parte de la funcionalidad
+        o sueldo ---> numero
+        
+        Métodos
+        o get y set de sus Atributos
+        o toString override(sobreescrito, ya que debe acompañar la información de esta subclase)
+
+    Subclase cliente HEREDDA de Persona
+
+    Atributos
+        o idCliente ----> numero
+        o fechaRegistro ---> fecha (tipo de objeto fecha)
+        o contadorCliente(estático y extra añadido (leer en Observaciones)), este deberá asignar los ids a cada cliente
+        Métodos
+        o get y set de sus Atributos
+        o toString override(sobreescrito, ya que debe acompañar la información de esta subclase)
+
+Observaciones:
+
+    # Se solicita que la variable del identificador del empleado sea obtenido desde la la superclase y que esta incremente
+    conforme más empleados se registren; pero el inconviniente radica en que los clientes deberán poder hacer lo mismo, y como
+    el contador irá aumentando, cabe la posibilidad de que el registro de cada entidad, sea empleado o cliente genero identificadores
+    no sucesivos, es decir por ejemplo:
+        
+        id = 1
+
+        1. Se registra un empleado: id = 1
+        id++
+        2. Se registra otro empleado: id = 2
+        id++
+        3. Se registra un cliente: id = 3
+        id++
+        4. Se registra otro empleado: id 4
+        id ++
+
+        Y tendríamos 3 empleados con los ids: 1, 2 y 4... ¿Y el tercero?, eso sería un desorden por no tener ids sucesivos y no sería correcto
+    
+    Por lo tanto, se añade un requerimiento opcional, que dicta que a pesar de que se permita realizar esta operación de ids no sucesivos, se puede crear
+    un contador estático PARA CADA SUBCLASE y así este problema se soluciona, teniendo ids sucesivos y únicos por cada entidad

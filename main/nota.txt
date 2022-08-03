@@ -1,0 +1,2 @@
+Se intentó separa la lógica tratando de colocar los módulos en otros directorios; pero no funcionó debido a errores de encontrar módulos cuya única solución era usar npm,
+como el ejercicio es simple y solo busca tratar de reforzar el tema de herencia, se omite esta práctica tradicional. Más adelante conforme avance en el curso vamos a ver como realizar esa separación.
