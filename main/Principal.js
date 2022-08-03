@@ -6,7 +6,7 @@ class Persona{
     // Constructor de la clase
     constructor(nombre, apellido, edad) {
         this._idPersona = Persona.contador_personas++;
-        this._nomre = nombre;
+        this._nombre = nombre;
         this._apellido = apellido;
         this._edad = edad;
     }
@@ -17,7 +17,7 @@ class Persona{
         return this._idPersona;
     }
     get nombre(){
-        return this._nomre;
+        return this._nombre;
     }
     set nombre(nombre){
         this._nombre = nombre;
@@ -37,9 +37,10 @@ class Persona{
 
     // toString sobreescrito
     toString(){
-        return "Nombre: " + this._nomre + " Apellido: " + this._apellido + " Edad: " + this._edad;
+        return "Nombre: " + this._nombre + " Apellido: " + this._apellido + " Edad: " + this._edad;
     }
 
+    
 }
 
 class Empleado extends Persona{
