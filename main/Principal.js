@@ -71,7 +71,7 @@ class Empleado extends Persona{
 
     // toString sobreescrito
     toString(){ // ! Templeate String
-        return `${super.toString()} es un empleado con id ${this._idEmpleado} y con un sueldo de: ${this._sueldo}`;
+        return `${super.toString()} es un empleado con el id ${this._idEmpleado} y con un sueldo de: ${this._sueldo}`;
     }
 }
 class Cliente extends Persona{
