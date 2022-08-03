@@ -102,7 +102,7 @@ class Cliente extends Persona{
     }
     // toString sobreescrito
     toString(){
-        return super.toString() + " es un cliente con id: " + this._idCliente + " que fue registrado en la fecha: " + this._fechaRegistro;
+        return `${super.toString()} es un cliente con id: ${this._idCliente} que fue registrado en la fecha: ${this._fechaRegistro}`;
     }
 }
 
